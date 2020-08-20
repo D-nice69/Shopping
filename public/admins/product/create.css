@@ -1,0 +1,8 @@
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    color: black;
+}
+.alert-danger{
+    margin-top: 8px;
+    padding: 0px;
+    padding-left: 10px;
+}
