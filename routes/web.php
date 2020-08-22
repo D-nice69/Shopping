@@ -63,7 +63,16 @@ Route::prefix('/slider')->group(function () {
     Route::get('/', 'sliderController@index')->name('slider.index');
     Route::get('/create', 'sliderController@create')->name('slider.create');
     Route::post('/store', 'sliderController@store')->name('slider.store');
-    // Route::get('/edit/{id}', 'sliderController@edit')->name('slider.edit');
-    // Route::post('/update/{id}', 'sliderController@update')->name('slider.update');
-    // Route::get('/delete/{id}','sliderController@delete')->name('slider.delete');
+    Route::get('/edit/{id}', 'sliderController@edit')->name('slider.edit');
+    Route::post('/update/{id}', 'sliderController@update')->name('slider.update');
+    Route::get('/delete/{id}','sliderController@delete')->name('slider.delete');
+});
+
+Route::prefix('/setting')->group(function () {
+    Route::get('/', 'settingController@index')->name('setting.index');
+    Route::get('/create', 'settingController@create')->name('setting.create');
+    // Route::post('/store', 'settingController@store')->name('setting.store');
+    // Route::get('/edit/{id}', 'settingController@edit')->name('setting.edit');
+    // Route::post('/update/{id}', 'settingController@update')->name('setting.update');
+    // Route::get('/delete/{id}','settingController@delete')->name('setting.delete');
 });

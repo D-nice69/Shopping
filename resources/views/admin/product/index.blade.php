@@ -3,11 +3,11 @@
     Add Product
 @endsection
 @section('css')
-    <link rel="stylesheet" href="{{ asset('admins/product/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/create_index_image_css/index_image.css') }}">
 @endsection
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="{{ asset('admins/product/index.js') }}"></script>
+    <script src="{{ asset('admins/delete_index/delete_index.js') }}"></script>
 @endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -42,7 +42,7 @@
                                         <td>{{ $product->name }}</td>
                                         <td>{{ number_format($product->price) }}</td>
                                         <td>
-                                            <img class="product_image" src="{{ $product->feature_image_path }}" alt="">
+                                            <img class="index_image" src="{{ $product->feature_image_path }}" alt="">
                                         </td>
                                         <td>{{ $product->category->name }}</td>
                                         <td>

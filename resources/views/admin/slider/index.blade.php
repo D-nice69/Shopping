@@ -1,6 +1,9 @@
 @extends('layout.admin')
 @section('title')
-   Slider
+    Slider
+@endsection
+@section('css')
+    <link rel="stylesheet" href="{{ asset('admins/create_index_image_css/index_image.css') }}">
 @endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -13,7 +16,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12 ">
-                        <a href="{{route('slider.create')}}" class="btn btn-success float-right m-2 text-white">Add</a>
+                        <a href="{{ route('slider.create') }}" class="btn btn-success float-right m-2 text-white">Add</a>
                     </div>
                     <div class="col-md-12">
                         <table class="table">
@@ -27,25 +30,27 @@
                                 </tr>
                             </thead>
 
-                            {{-- @foreach ($menus as $menu) --}}
+                            @foreach ($sliders as $slider)
                                 <tbody>
                                     <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <th scope="row">{{ $slider->id }}</th>
+                                        <td>{{ $slider->name }}</td>
+                                        <td><?php echo strip_tags($slider->description); ?>
+                                        </td>
+                                        <td><img class="index_image" src="{{ $slider->image_path }}" alt=""></td>
                                         <td>
-                                            <a href="" class="btn btn-default">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('slider.edit',['id'=>$slider->id]) }}" class="btn btn-default">Edit</a>
+                                            <a href="" data-url="{{ route('slider.delete', ['id' => $slider->id]) }}"
+                                                class="btn btn-danger action_delete">Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>
-                            {{-- @endforeach --}}
+                            @endforeach
 
                         </table>
                     </div>
                     <div class="col-md-12">
-                        {{-- {{ $menus->links() }} --}}
+                        {{ $sliders->links() }}
                     </div>
                 </div>
                 <!-- /.row -->
@@ -54,4 +59,8 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+@endsection
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{{ asset('admins/delete_index/delete_index.js') }}"></script>
 @endsection

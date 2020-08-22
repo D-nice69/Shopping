@@ -98,6 +98,5 @@
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<script src="{{ asset('admins/product/create.js') }}"> </script>
-
+<script src="{{ asset('admins/textarea/textarea.js') }}"> </script>
 @endsection
