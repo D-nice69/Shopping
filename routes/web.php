@@ -71,8 +71,8 @@ Route::prefix('/slider')->group(function () {
 Route::prefix('/setting')->group(function () {
     Route::get('/', 'settingController@index')->name('setting.index');
     Route::get('/create', 'settingController@create')->name('setting.create');
-    // Route::post('/store', 'settingController@store')->name('setting.store');
-    // Route::get('/edit/{id}', 'settingController@edit')->name('setting.edit');
-    // Route::post('/update/{id}', 'settingController@update')->name('setting.update');
-    // Route::get('/delete/{id}','settingController@delete')->name('setting.delete');
+    Route::post('/store', 'settingController@store')->name('setting.store');
+    Route::get('/edit/{id}', 'settingController@edit')->name('setting.edit');
+    Route::post('/update/{id}', 'settingController@update')->name('setting.update');
+    Route::get('/delete/{id}','settingController@delete')->name('setting.delete');
 });

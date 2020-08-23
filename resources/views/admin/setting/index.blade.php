@@ -3,8 +3,12 @@
     Trang chủ
 @endsection
 @section('css')
-<link rel="stylesheet" href="{{ asset('admins/setting/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/setting/index.css') }}">
 
+@endsection
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="{{ asset('admins/delete_index/delete_index.js') }}"></script>
 @endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -19,12 +23,12 @@
                     <div class="col-md-12 ">
                         <div class="btn-group float-right">
                             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                Action
+                                Add setting
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('setting.create').'?type=Text' }}">text</a></li>
-                                <li><a href="{{ route('setting.create').'?type=Textarea' }}">textarea</a></li>
+                                <li><a href="{{ route('setting.create') . '?type=Text' }}">Text</a></li>
+                                <li><a href="{{ route('setting.create') . '?type=Textarea' }}">Textarea</a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,24 +43,26 @@
                                 </tr>
                             </thead>
 
-                            {{-- @foreach ($menus as $menu) --}}
+                            @foreach ($settings as $setting)
                                 <tbody>
                                     <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
+                                        <th scope="row">{{ $setting->id }}</th>
+                                        <td>{{ $setting->config_key }}</td>
+                                        <td>{{ $setting->config_value }}</td>
                                         <td>
-                                            <a href="" class="btn btn-default">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('setting.edit', ['id' => $setting->id]) . '?type=' . $setting->type }}"
+                                                class="btn btn-default">Edit</a>
+                                                <a href="" data-url="{{ route('setting.delete', ['id' => $setting->id]) }}"
+                                                    class="btn btn-danger action_delete">Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>
-                            {{-- @endforeach --}}
+                            @endforeach
 
                         </table>
                     </div>
                     <div class="col-md-12">
-                        {{-- {{ $menus->links() }} --}}
+                        {{ $settings->links() }}
                     </div>
                 </div>
                 <!-- /.row -->
