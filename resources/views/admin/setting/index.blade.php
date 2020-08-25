@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Trang chủ
+    Settings list
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/setting/index.css') }}">

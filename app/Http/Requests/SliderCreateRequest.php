@@ -25,7 +25,7 @@ class SliderCreateRequest extends FormRequest
     {
         return [
             'name' => "bail|required|unique:sliders,name,NULL,id,deleted_at,NULL|max:255",
-            'description' => 'required|unique:sliders',
+            'description' => 'required|unique:sliders,description,NULL,id,deleted_at,NULL',
             'image_path' =>'required',
         ];
     }

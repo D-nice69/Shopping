@@ -1,17 +1,17 @@
 @extends('layout.admin')
 @section('title')
-    Thêm sản phẩm
+    Edit product
 @endsection
 @section('content')
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-     <link rel="stylesheet" href="{{ asset('admins/product/edit.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/product/edit.css') }}">
 
 @endsection
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    @include('adminPatials.content_header',['name'=>'product','key' =>'Edit'])
+    @include('adminPatials.content_header',['name'=>'Product','key' =>'Edit'])
 
 
     <!-- Main content -->

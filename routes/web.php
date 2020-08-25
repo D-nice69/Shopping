@@ -76,3 +76,21 @@ Route::prefix('/setting')->group(function () {
     Route::post('/update/{id}', 'settingController@update')->name('setting.update');
     Route::get('/delete/{id}','settingController@delete')->name('setting.delete');
 });
+
+Route::prefix('/users')->group(function () {
+    Route::get('/', 'adminUserController@index')->name('users.index');
+    Route::get('/create', 'adminUserController@create')->name('users.create');
+    Route::post('/store', 'adminUserController@store')->name('users.store');
+    Route::get('/edit/{id}', 'adminUserController@edit')->name('users.edit');
+    Route::post('/update/{id}', 'adminUserController@update')->name('users.update');
+    Route::get('/delete/{id}','adminUserController@delete')->name('users.delete');
+});
+
+Route::prefix('/role')->group(function () {
+    Route::get('/', 'AdminRoleController@index')->name('role.index');
+    Route::get('/create', 'AdminRoleController@create')->name('role.create');
+    Route::post('/store', 'AdminRoleController@store')->name('role.store');
+    Route::get('/edit/{id}', 'AdminRoleController@edit')->name('role.edit');
+    Route::post('/update/{id}', 'AdminRoleController@update')->name('role.update');
+    // Route::get('/delete/{id}','AdminRoleController@delete')->name('role.delete');
+});

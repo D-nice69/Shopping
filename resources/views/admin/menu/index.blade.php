@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Trang chủ
+    Menus list
 @endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->

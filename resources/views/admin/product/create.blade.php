@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Thêm sản phẩm
+    Add product
 @endsection
 @section('content')
 @section('css')
@@ -14,7 +14,7 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    @include('adminPatials.content_header',['name'=>'product','key' =>'Add'])
+    @include('adminPatials.content_header',['name'=>'Product','key' =>'Add'])
 
     <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
         @csrf

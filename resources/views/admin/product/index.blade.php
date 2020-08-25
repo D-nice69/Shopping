@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Add Product
+    Products list
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/create_index_image_css/index_image.css') }}">

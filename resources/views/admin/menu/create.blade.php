@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Thêm sản phẩm
+    Add menu
 @endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->

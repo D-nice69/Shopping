@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Thêm sản phẩm
+    Add setting
 @endsection
 @section('content')
 @section('css')

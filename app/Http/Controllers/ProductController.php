@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Components\Recusive;
 use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Product;
 use App\ProductImage;
 use App\ProductTag;
@@ -98,7 +99,7 @@ class ProductController extends Controller
         $htmlOption = $this->getCategory($product->category_id);
         return view('admin.product.edit', compact('htmlOption', 'product'));
     }
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         try {
             DB::beginTransaction();

@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title')
-    Thêm sản phẩm
+    Edit setting
 @endsection
 @section('content')
 @section('css')
@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="row pl-10">
                 <div class="col-md-6 ">
-                    <form method="POST" action="{{ route('setting.update',['id'=>$setting->id]) }}">
+                    <form method="POST" action="{{ route('setting.update', ['id' => $setting->id]) }}">
                         @csrf
                         <div class="form-group">
                             <label>Tên Config key</label>
