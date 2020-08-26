@@ -2,9 +2,6 @@
 @section('title')
     Roles list
 @endsection
-@section('css')
-    <link rel="stylesheet" href="{{ asset('admins/create_index_image_css/index_image.css') }}">
-@endsection
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{ asset('admins/delete_index/delete_index.js') }}"></script>
@@ -42,8 +39,8 @@
                                         <td>
                                             <a href="{{ route('role.edit', ['id' => $role->id]) }}"
                                                 class="btn btn-default">Edit</a>
-                                            {{-- <a href="" data-url="{{ route('product.delete', ['id' => $product->id]) }}"
-                                                class="btn btn-danger action_delete">Delete</a> --}}
+                                            <a href="" data-url="{{ route('role.delete', ['id' => $role->id]) }}"
+                                                class="btn btn-danger action_delete">Delete</a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -28,12 +28,15 @@ Route::get('/Homepage', function () {
     return view('home');
 });
 Route::prefix('categories')->group(function () {
-    Route::get('/create', 'categoryController@create')->name('category.create');
+    Route::get('/', 'categoryController@index')
+    ->name('category.index')
+    ->middleware('can:category-list');
+    Route::get('/create', 'categoryController@create')
+        ->name('category.create');
+    Route::post('/store', 'categoryController@store')->name('category.store');
     Route::get('/edit/{id}', 'categoryController@edit')->name('category.edit');
     Route::post('/update/{id}', 'categoryController@update')->name('category.update');
     Route::get('/delete/{id}', 'categoryController@delete')->name('category.delete');
-    Route::get('/index', 'categoryController@index')->name('category.index');
-    Route::post('/store', 'categoryController@store')->name('category.store');
 });
 
 Route::prefix('/menus')->group(function () {
@@ -56,7 +59,7 @@ Route::prefix('/products')->group(function () {
     Route::post('/store', 'productController@store')->name('product.store');
     Route::get('/edit/{id}', 'productController@edit')->name('product.edit');
     Route::post('/update/{id}', 'productController@update')->name('product.update');
-    Route::get('/delete/{id}','productController@delete')->name('product.delete');
+    Route::get('/delete/{id}', 'productController@delete')->name('product.delete');
 });
 
 Route::prefix('/slider')->group(function () {
@@ -65,7 +68,7 @@ Route::prefix('/slider')->group(function () {
     Route::post('/store', 'sliderController@store')->name('slider.store');
     Route::get('/edit/{id}', 'sliderController@edit')->name('slider.edit');
     Route::post('/update/{id}', 'sliderController@update')->name('slider.update');
-    Route::get('/delete/{id}','sliderController@delete')->name('slider.delete');
+    Route::get('/delete/{id}', 'sliderController@delete')->name('slider.delete');
 });
 
 Route::prefix('/setting')->group(function () {
@@ -74,7 +77,7 @@ Route::prefix('/setting')->group(function () {
     Route::post('/store', 'settingController@store')->name('setting.store');
     Route::get('/edit/{id}', 'settingController@edit')->name('setting.edit');
     Route::post('/update/{id}', 'settingController@update')->name('setting.update');
-    Route::get('/delete/{id}','settingController@delete')->name('setting.delete');
+    Route::get('/delete/{id}', 'settingController@delete')->name('setting.delete');
 });
 
 Route::prefix('/users')->group(function () {
@@ -83,7 +86,7 @@ Route::prefix('/users')->group(function () {
     Route::post('/store', 'adminUserController@store')->name('users.store');
     Route::get('/edit/{id}', 'adminUserController@edit')->name('users.edit');
     Route::post('/update/{id}', 'adminUserController@update')->name('users.update');
-    Route::get('/delete/{id}','adminUserController@delete')->name('users.delete');
+    Route::get('/delete/{id}', 'adminUserController@delete')->name('users.delete');
 });
 
 Route::prefix('/role')->group(function () {
@@ -92,5 +95,5 @@ Route::prefix('/role')->group(function () {
     Route::post('/store', 'AdminRoleController@store')->name('role.store');
     Route::get('/edit/{id}', 'AdminRoleController@edit')->name('role.edit');
     Route::post('/update/{id}', 'AdminRoleController@update')->name('role.update');
-    // Route::get('/delete/{id}','AdminRoleController@delete')->name('role.delete');
+    Route::get('/delete/{id}', 'AdminRoleController@delete')->name('role.delete');
 });

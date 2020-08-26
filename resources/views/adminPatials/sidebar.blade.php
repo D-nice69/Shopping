@@ -68,7 +68,7 @@
                     <a href="{{ route('users.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Employee list
+                            Users
                         </p>
                     </a>
                 </li>

@@ -23,7 +23,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Slider's Name</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Action</th>

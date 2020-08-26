@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label>Tên</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nhập tên User"
-                                    @error('name') is-invalid @enderror value="{{ $users->id }}">
+                                    @error('name') is-invalid @enderror value="{{ $users->name }}">
                                 @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
