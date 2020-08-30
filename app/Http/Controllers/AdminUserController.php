@@ -45,14 +45,13 @@ class AdminUserController extends Controller
             DB::rollBack();
             Log::error('Message: ' . $exception->getMessage() . 'Line: ' . $exception->getLine());
         }
-
     }
     public function edit($id)
     {
         $users = $this->user->find($id);
         $roles = $this->role->all();
         $rolesOfUser = $users->roles;
-        return view('admin.user.edit',compact('roles','users','rolesOfUser'));
+        return view('admin.user.edit', compact('roles', 'users', 'rolesOfUser'));
     }
     public function update(Request $request, $id)
     {
@@ -88,5 +87,4 @@ class AdminUserController extends Controller
             ], 500);
         }
     }
-
 }

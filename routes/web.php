@@ -29,14 +29,21 @@ Route::get('/Homepage', function () {
 });
 Route::prefix('categories')->group(function () {
     Route::get('/', 'categoryController@index')
-    ->name('category.index')
-    ->middleware('can:category-list');
+        ->name('category.index')
+        ->middleware('can:category-list');
     Route::get('/create', 'categoryController@create')
-        ->name('category.create');
-    Route::post('/store', 'categoryController@store')->name('category.store');
-    Route::get('/edit/{id}', 'categoryController@edit')->name('category.edit');
-    Route::post('/update/{id}', 'categoryController@update')->name('category.update');
-    Route::get('/delete/{id}', 'categoryController@delete')->name('category.delete');
+        ->name('category.create')
+        ->middleware('can:category-add');
+    Route::post('/store', 'categoryController@store')
+        ->name('category.store');
+    Route::get('/edit/{id}', 'categoryController@edit')
+        ->name('category.edit')
+        ->middleware('can:category-edit');
+    Route::post('/update/{id}', 'categoryController@update')
+        ->name('category.update');
+    Route::get('/delete/{id}', 'categoryController@delete')
+        ->name('category.delete')
+        ->middleware('can:category-delete');
 });
 
 Route::prefix('/menus')->group(function () {
@@ -96,4 +103,13 @@ Route::prefix('/role')->group(function () {
     Route::get('/edit/{id}', 'AdminRoleController@edit')->name('role.edit');
     Route::post('/update/{id}', 'AdminRoleController@update')->name('role.update');
     Route::get('/delete/{id}', 'AdminRoleController@delete')->name('role.delete');
+});
+
+Route::prefix('/permission')->group(function () {
+    Route::get('/', 'AdminPermissionController@index')->name('permission.index');
+    Route::get('/create', 'AdminPermissionController@create')->name('permission.create');
+    Route::post('/store', 'AdminPermissionController@store')->name('permission.store');
+    // Route::get('/edit/{id}', 'AdminPermissionController@edit')->name('permission.edit');
+    // Route::post('/update/{id}', 'AdminPermissionController@update')->name('permission.update');
+    // Route::get('/delete/{id}', 'AdminPermissionController@delete')->name('permission.delete');
 });
