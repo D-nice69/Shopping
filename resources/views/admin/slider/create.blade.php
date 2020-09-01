@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label>Tên Slider</label>
                             <input type="text" name="name" class="form-control" @error('name') is-invalid @enderror
-                                placeholder="Nhập tên sản phẩm" value="{{ old('name') }}">
+                                placeholder="Nhập tên slider" value="{{ old('name') }}">
                             @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

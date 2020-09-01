@@ -17,14 +17,29 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/', 'homeController@index');
 
-Route::get('/home', function () {
-    return view('index');
+Route::prefix('home')->group(function () {
+    Route::get('/', 'homeController@index')
+        ->name('home.index');
+    // ->middleware('can:home-list');
+    Route::get('/shoppinglist', 'homeController@shoppingList')
+        ->name('home.shoppinglist');
+    // Route::get('/create', 'homeController@create')
+    //     ->name('home.create')
+    //     ->middleware('can:home-add');
+    // Route::post('/store', 'homeController@store')
+    //     ->name('home.store');
+    // Route::get('/edit/{id}', 'homeController@edit')
+    //     ->name('home.edit')
+    //     ->middleware('can:home-edit');
+    // Route::post('/update/{id}', 'homeController@update')
+    //     ->name('home.update');
+    // Route::get('/delete/{id}', 'homeController@delete')
+    //     ->name('home.delete')
+    //     ->middleware('can:home-delete');
 });
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/Homepage', function () {
+Route::get('/homepageadmin', function () {
     return view('home');
 });
 Route::prefix('categories')->group(function () {
