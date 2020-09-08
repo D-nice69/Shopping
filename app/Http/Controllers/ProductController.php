@@ -99,7 +99,7 @@ class ProductController extends Controller
         $htmlOption = $this->getCategory($product->category_id);
         return view('admin.product.edit', compact('htmlOption', 'product'));
     }
-    public function update(UpdateProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
             DB::beginTransaction();
@@ -131,11 +131,15 @@ class ProductController extends Controller
             }
 
             //insert tags to product
-            foreach ($request->tags as $tagItem) {
-                $tagInstance = $this->tag->firstOrCreate([
-                    'name' => $tagItem
-                ]);
-                $tagIds[] = $tagInstance->id;
+            $tagIds = [];
+            if (!empty($request->tags)) {
+
+                foreach ($request->tags as $tagItem) {
+                    $tagInstance = $this->tag->firstOrCreate([
+                        'name' => $tagItem
+                    ]);
+                    $tagIds[] = $tagInstance->id;
+                }
             }
             $product->tags()->sync($tagIds);
             DB::commit();

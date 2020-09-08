@@ -17,7 +17,7 @@
                                 <div class="col-sm-6">
                                     <h1><span>E</span>-SHOPPER</h1>
                                     <h2>{{ $slider->name }}</h2>
-                                    <p>{{ strip_tags($slider->description) }} </p>
+                                    <p>{!! strip_tags($slider->description) !!} </p>
                                     <button type="button" class="btn btn-default get">Get it now</button>
                                 </div>
                                 <div class="col-sm-6">

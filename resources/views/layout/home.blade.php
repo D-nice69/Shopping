@@ -27,7 +27,6 @@
 </head><!--/head-->
 <body>
 	@include('homePatials.header')
-	@include('homePatials.slider')
 	@yield('content')
 	@include('homePatials.footer')
     <script src="js/jquery.js"></script>

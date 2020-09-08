@@ -9,4 +9,5 @@ class Setting extends Model
 {
     use SoftDeletes;
     protected $guarded = [];
+    
 }

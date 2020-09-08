@@ -35,7 +35,7 @@
                                     <tr>
                                         <th scope="row">{{ $slider->id }}</th>
                                         <td>{{ $slider->name }}</td>
-                                        <td><?php echo strip_tags($slider->description); ?>
+                                        <td>{!! $slider->description !!}
                                         </td>
                                         <td><img class="index_image" src="{{ $slider->image_path }}" alt=""></td>
                                         <td>
